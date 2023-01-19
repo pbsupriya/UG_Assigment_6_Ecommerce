@@ -8,14 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ecommerce.onlineorder.database.EcommerceReopository;
 import com.ecommerce.onlineorder.model.Order;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EcommerceService {
 
 	@Autowired
 	EcommerceReopository ecommerceReopository;
 	
 	public void saveOrderDetails(@Valid Order order) {
-		ecommerceReopository.insert(order);
+		ecommerceReopository.save(order);
 	}
 
 	public Optional<Order> getOrderDetails(@Valid String orderId) {
